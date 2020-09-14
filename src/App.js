@@ -14,22 +14,13 @@ class App extends Component {
           <nav className="navbar navbar-inverse">
             <ul className="nav navbar-nav">
               <li>
-                <NavLink activeStyle={{
-                  backgroundColor: 'white',
-                  color: 'red'
-                }} exact to="/" className="my-link">Home</NavLink>
+                <NavLink activeClassName="active" exact to="/" className="my-link">Home</NavLink>
               </li>
               <li>
-                <NavLink activeStyle={{
-                  backgroundColor: 'white',
-                  color: 'red'
-                }} to="/about" className="my-link">About</NavLink>
+                <NavLink activeClassName="active" to="/about" className="my-link">About</NavLink>
               </li>
               <li>
-                <NavLink activeStyle={{
-                  backgroundColor: 'white',
-                  color: 'red'
-                }} to="/contact" className="my-link">Contact</NavLink>
+                <NavLink activeClassName="active" to="/contact" className="my-link">Contact</NavLink>
               </li>
             </ul>
           </nav>
