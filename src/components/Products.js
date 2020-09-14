@@ -44,6 +44,11 @@ class Products extends Component {
                 </NavLink>
             )
         })
+
+        var {location} = this.props;
+        // Show information of location which is sent from Login Page
+        console.log(location);
+
         return (
             <div>
                 <h1>This is Products page</h1>
