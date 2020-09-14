@@ -1,27 +1,35 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
 
+const MenuLink  = ({ label, to, activeOnlyWhenExact}) => {
+  return (
+    <Route path={to} exact={activeOnlyWhenExact} children={({match}) => {
+      var active = match ? 'active_link': '';
+      return (
+        <li className={active}>
+          <Link to={to} className="my-link">
+            {label}
+          </Link>
+        </li>
+      )
+    }}/>
+  )
+}
 class App extends Component {
   render() {
     return (
       <Router>
         <div className="App" >
           {/* Menu */}
-          <nav className="navbar navbar-inverse">
+          <nav className="navbar navbar-default">
             <ul className="nav navbar-nav">
-              <li>
-                <NavLink activeClassName="active" exact to="/" className="my-link">Home</NavLink>
-              </li>
-              <li>
-                <NavLink activeClassName="active" to="/about" className="my-link">About</NavLink>
-              </li>
-              <li>
-                <NavLink activeClassName="active" to="/contact" className="my-link">Contact</NavLink>
-              </li>
+              <MenuLink label="Home" to="/" activeOnlyWhenExact={true} />
+              <MenuLink label="About" to="/about" activeOnlyWhenExact={false} />
+              <MenuLink label="Contact" to="/contact" activeOnlyWhenExact={false} />
             </ul>
           </nav>
 
