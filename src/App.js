@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
+import NotFound from './components/NotFound';
 
 const MenuLink  = ({ label, to, activeOnlyWhenExact}) => {
   return (
@@ -34,9 +35,12 @@ class App extends Component {
           </nav>
 
           {/* Content */}
-          <Route path="/" exact component={Home} />
-          <Route path="/about" component={About} />
-          <Route path="/contact" component={Contact} />
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/about" component={About} />
+            <Route path="/contact" component={Contact} />
+            <Route component={NotFound} />
+          </Switch>
         </div>
       </Router>
     )
